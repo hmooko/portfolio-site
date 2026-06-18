@@ -1,6 +1,8 @@
 import React from 'react';
 import FlowerLogo from './components/FlowerLogo.jsx';
 
+const baseUrl = import.meta.env.BASE_URL;
+
 const experiences = [
   {
     period: '2022.04 — 2022.05',
@@ -108,10 +110,10 @@ function AboutPage() {
     <div className="about-page">
       <header className="topbar about-topbar">
         <nav className="nav-left" aria-label="주요 메뉴">
-          <a href="/index.html#work">Work</a>
-          <a className="active" href="/about.html">About</a>
+          <a href={`${baseUrl}index.html#work`}>Work</a>
+          <a className="active" href={`${baseUrl}about.html`}>About</a>
         </nav>
-        <a className="center-logo" href="/index.html"><FlowerLogo /></a>
+        <a className="center-logo" href={`${baseUrl}index.html`}><FlowerLogo /></a>
         <a className="hello-button" href="mailto:hmoo4198@gmail.com">Say hey to Hyunmo</a>
       </header>
 
@@ -174,11 +176,11 @@ function AboutPage() {
         <div className="footer-panel">
           <div className="footer-contact">
             <FlowerLogo dark />
-            <p>Back to <a href="/index.html">Home</a><br />or visit <a href="https://github.com/hmooko" target="_blank" rel="noreferrer">GitHub</a>.</p>
+            <p>Back to <a href={`${baseUrl}index.html`}>Home</a><br />or visit <a href="https://github.com/hmooko" target="_blank" rel="noreferrer">GitHub</a>.</p>
           </div>
           <nav className="footer-nav">
-            <a href="/index.html#work">Work</a>
-            <a href="/about.html">About</a>
+            <a href={`${baseUrl}index.html#work`}>Work</a>
+            <a href={`${baseUrl}about.html`}>About</a>
             <a href="mailto:hmoo4198@gmail.com">Contact</a>
           </nav>
         </div>
