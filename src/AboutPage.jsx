@@ -1,0 +1,190 @@
+import React from 'react';
+import FlowerLogo from './components/FlowerLogo.jsx';
+
+const experiences = [
+  {
+    period: '2022.04 — 2022.05',
+    category: 'Challenge',
+    title: 'K-Hackathon 10회',
+    description: '유기견 보호와 되찾기를 돕는 안드로이드 앱을 팀 단위로 기획했습니다.',
+    details: [
+      '앱 UI 디자인과 서비스명 제안',
+      '유기견 발생을 줄이기 위한 예방 아이디어 제안',
+      '팀 단위 앱 기획 및 개발 프로세스 경험',
+    ],
+  },
+  {
+    period: '2022.09 — 2022.12',
+    category: 'Startup Club',
+    title: '단국대학교 LINC3.0 창업동아리',
+    description: '인기 라면 순위와 다양한 라면 콘텐츠를 제공하는 안드로이드 앱을 기획하고 개발했습니다.',
+    details: [
+      '창업 보고서를 직접 작성하며 창업 프로세스 학습',
+      'Android 프론트엔드 커뮤니티·홈 화면 개발',
+      'Figma를 이용한 앱 UI 설계',
+    ],
+  },
+  {
+    period: '2022',
+    category: 'Campus Club',
+    title: '교내 보안동아리 Aegis',
+    description: '안드로이드 앱 구조와 기능 구현을 학습하고 동료들과 개발 지식을 공유했습니다.',
+    details: [
+      '안드로이드 앱 구조 및 기능 구현 스터디',
+      '개발 지식 공유와 동아리 운영진 경험',
+    ],
+  },
+  {
+    period: '2024.03 — 현재',
+    category: 'Sole Project',
+    title: '일본 상용한자 학습 앱 Aoi',
+    description: '일본 상용한자를 학습하는 앱을 혼자 기획하고 개발해 App Store에 출시했습니다.',
+    details: [
+      'SwiftUI 기반 iOS 앱 개발, 디자인 및 실제 배포',
+      'Spring Boot 기반 로그인, AI 문제 생성, 결제 검증 기능 구현',
+      'Gemini API를 활용한 AI 맞춤형 문제 생성',
+      'Oracle Cloud, Docker, GitHub Actions 기반 서버 배포 및 운영',
+    ],
+    link: {
+      label: 'App Store에서 보기',
+      href: 'https://apps.apple.com/kr/app/aoi-%EC%9D%BC%EB%B3%B8-%EC%83%81%EC%9A%A9%ED%95%9C%EC%9E%90-%ED%95%99%EC%8A%B5/id6554000732',
+    },
+  },
+  {
+    period: '2025.09 — 현재',
+    category: 'Team Project',
+    title: 'AI 아트워크 커머스 Art-Window',
+    description: '사용자의 공간과 취향에 맞는 AI 작품을 생성하고 액자 구매까지 연결하는 서비스를 개발했습니다.',
+    details: [
+      'OAuth2 소셜 로그인과 JWT 인증 시스템 구현',
+      'PayApp PG 및 Server-to-Server Webhook 기반 결제 검증',
+      'OCI Object Storage 기반 AI 생성 이미지 관리',
+      '주문, 결제, 환불, 관리자 처리 등 커머스 핵심 도메인 설계',
+    ],
+    link: { label: '웹사이트 방문하기', href: 'https://www.art-window.com/' },
+  },
+  {
+    period: '2026.01 — 2026.02',
+    category: 'Backend',
+    title: 'UMC MY4CUT 프로젝트',
+    description: '네컷 사진을 친구들과 공유·수정하고 보관하는 협업형 아카이빙 플랫폼을 개발했습니다.',
+    details: [
+      '공통 API 응답 규격, 전역 예외 처리, Swagger 문서화 구축',
+      '워크스페이스, 초대, 멤버십, 댓글 등 협업 도메인 구현',
+      'Android, PM, Design 파트와 API 명세 기반 협업',
+    ],
+    link: { label: 'GitHub에서 보기', href: 'https://github.com/MY4CUT-BE/MY4CUT-BE' },
+  },
+  {
+    period: '2026.03 — 현재',
+    category: 'Scholarship',
+    title: '다우기술 SW장학생',
+    description: '학업 성취도와 개발 역량을 바탕으로 대학 추천과 다우기술 면접을 거쳐 SW장학생으로 선발되었습니다.',
+    details: [
+      '단국대학교 추천과 다우기술 면접을 거쳐 최종 선발',
+      'Java·Spring 기반 4주 개발 직무 인턴십 참여 예정',
+    ],
+  },
+  {
+    period: '2026.06',
+    category: 'Research',
+    title: 'KCC 2026 캐싱 전략 성능 비교 연구',
+    description: '대규모 읽기 트래픽 환경에서 로컬·글로벌 캐시 전략을 비교한 제1저자 논문이 KCC 2026에 채택되었습니다.',
+    details: [
+      '수강신청 과목 조회 API와 10,000건의 실험 데이터 구성',
+      'JMeter로 최대 1,200명 동시 사용자 환경의 P95 응답시간과 TPS 측정',
+      'Caffeine 적용 시 No Cache 대비 P95 응답시간 68.6% 감소, 처리량 88.2% 증가',
+      'Redis의 네트워크 왕복·역직렬화 오버헤드를 분리하고 환경별 캐시 선택 기준 도출',
+    ],
+    link: {
+      label: '논문 보기',
+      href: 'https://drive.google.com/file/d/1qw3jFZmSAAm09J2dJMD0qS9PewD-_hrC/view?usp=sharing',
+    },
+  },
+];
+
+function AboutPage() {
+  return (
+    <div className="about-page">
+      <header className="topbar about-topbar">
+        <nav className="nav-left" aria-label="주요 메뉴">
+          <a href="/index.html#work">Work</a>
+          <a className="active" href="/about.html">About</a>
+        </nav>
+        <a className="center-logo" href="/index.html"><FlowerLogo /></a>
+        <a className="hello-button" href="mailto:hmoo4198@gmail.com">Say hey to Hyunmo</a>
+      </header>
+
+      <main>
+        <section className="about-hero">
+          <div>
+            <p className="about-kicker">About Hyunmo</p>
+            <h1>I keep building, even when the environment is not perfect.</h1>
+          </div>
+          <div className="about-intro">
+            <p>
+              작은 불편을 직접 해결하는 앱 개발에서 시작해 인증, 결제, AI, 클라우드 인프라를 다루는
+              Spring Boot 백엔드 개발자로 성장하고 있습니다.
+            </p>
+          </div>
+          <div className="about-flower"><FlowerLogo large /></div>
+        </section>
+
+        <section className="journey-section">
+          <div className="journey-heading">
+            <p>Experience</p>
+            <h2>Things I’ve<br />built and learned</h2>
+          </div>
+
+          <div className="experience-list">
+            {experiences.map((experience, index) => (
+              <article className="experience-row" key={`${experience.title}-${experience.period}`}>
+                <div className="experience-number">{String(index + 1).padStart(2, '0')}</div>
+                <div className="experience-date">
+                  <span>{experience.category}</span>
+                  <p>{experience.period}</p>
+                </div>
+                <div className="experience-content">
+                  <h3>{experience.title}</h3>
+                  <p>{experience.description}</p>
+                  <ul>
+                    {experience.details.map((detail) => <li key={detail}>{detail}</li>)}
+                  </ul>
+                  {experience.link && (
+                    <a href={experience.link.href} target="_blank" rel="noreferrer">
+                      {experience.link.label} <span>↗</span>
+                    </a>
+                  )}
+                </div>
+              </article>
+            ))}
+          </div>
+        </section>
+
+        <section className="about-contact">
+          <h2>Let’s make something useful together.</h2>
+          <div>
+            <p>새로운 서비스와 재미있는 문제를 함께 해결할 기회를 기다리고 있습니다.</p>
+            <a href="mailto:hmoo4198@gmail.com">hmoo4198@gmail.com</a>
+          </div>
+        </section>
+      </main>
+
+      <footer className="footer about-footer">
+        <div className="footer-panel">
+          <div className="footer-contact">
+            <FlowerLogo dark />
+            <p>Back to <a href="/index.html">Home</a><br />or visit <a href="https://github.com/hmooko" target="_blank" rel="noreferrer">GitHub</a>.</p>
+          </div>
+          <nav className="footer-nav">
+            <a href="/index.html#work">Work</a>
+            <a href="/about.html">About</a>
+            <a href="mailto:hmoo4198@gmail.com">Contact</a>
+          </nav>
+        </div>
+      </footer>
+    </div>
+  );
+}
+
+export default AboutPage;
