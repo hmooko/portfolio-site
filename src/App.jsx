@@ -7,7 +7,7 @@ const projects = [
   {
     title: 'Aoi',
     subtitle: 'AI 일본어 한자 학습 서비스',
-    role: 'Solo product · Backend & iOS',
+    role: 'Solo product · iOS, server & design',
     stack: ['Spring Boot', 'SwiftUI', 'Gemini API', 'Docker'],
     impact: '기획부터 App Store 출시, 결제 검증과 운영 인프라까지 직접 구축했습니다.',
     type: 'aoi',
@@ -17,7 +17,7 @@ const projects = [
   {
     title: 'Art-Window',
     subtitle: 'AI 공간 맞춤형 아트워크 커머스',
-    role: 'Team project · Backend',
+    role: 'Team project · Server & commerce',
     stack: ['Spring Boot', 'OAuth2', 'PayApp', 'OCI'],
     impact: '인증, 이미지 저장, 주문·결제·환불 흐름을 안정적으로 연결했습니다.',
     type: 'art',
@@ -27,7 +27,7 @@ const projects = [
   {
     title: 'MY4CUT',
     subtitle: '네컷 사진 아카이빙 플랫폼',
-    role: 'Team project · Backend',
+    role: 'Team project · API & domain',
     stack: ['Spring Boot', 'Swagger', 'REST API', 'Collaboration'],
     impact: '워크스페이스, 초대, 멤버십과 댓글 도메인을 설계하고 구현했습니다.',
     type: 'my4cut',
@@ -51,15 +51,15 @@ function App() {
       <main>
         <section className="hero" id="home">
           <div className="hero-title">
-            <p className="hero-eyebrow">Backend engineer · Product builder</p>
-            <h1>Hyunmo builds reliable backend systems.</h1>
+            <p className="hero-eyebrow">Developer · Product builder</p>
+            <h1>Hyunmo turns ideas into working products.</h1>
           </div>
           <div className="hero-description">
             <p>
-              사용자에게 필요한 서비스를 직접 기획하고, Spring Boot로 인증·결제·AI·인프라를 연결합니다.
-              앱 출시부터 운영까지 끝까지 책임지는 개발자입니다.
+              필요한 문제를 발견하고 모바일 앱, 서버, AI와 인프라를 연결해 실제 서비스로 완성합니다.
+              정해진 역할보다 사용자에게 필요한 결과를 만들고 끝까지 운영하는 과정에 집중합니다.
             </p>
-            <a href={`${baseUrl}about.html`}>성과와 성장 과정 보기</a>
+            <a href={`${baseUrl}about.html`}>프로젝트와 성장 과정 보기</a>
           </div>
           <div className="decor-flower flower-left"><FlowerLogo large /></div>
           <div className="decor-flower flower-right"><FlowerLogo dark large /></div>
@@ -68,7 +68,7 @@ function App() {
         <section className="work-section" id="work">
           <div className="section-heading">
             <div>
-              <p className="section-kicker">Selected case studies</p>
+              <p className="section-kicker">Selected projects</p>
               <h2>Featured work</h2>
             </div>
             <a href="https://github.com/hmooko" target="_blank" rel="noreferrer">See all work</a>
@@ -106,12 +106,12 @@ function App() {
 
         <section className="about-section">
           <div>
-            <h2>Ready to build a service that people can trust?</h2>
+            <h2>Ready to build something useful together?</h2>
           </div>
           <div>
             <p>
               아이디어를 실제 사용자가 만나는 서비스로 완성해 왔습니다. 낯선 기술과 제약 앞에서도 문제를 작게
-              나누고, 오래 운영할 수 있는 해답을 끝까지 만들어냅니다.
+              나누고, 상황에 맞는 도구와 역할을 선택해 끝까지 결과를 만들어냅니다.
             </p>
             <a href={`${baseUrl}about.html`}>전체 여정 보기</a>
           </div>

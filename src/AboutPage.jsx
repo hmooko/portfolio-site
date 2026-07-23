@@ -67,7 +67,7 @@ const experiences = [
   },
   {
     period: '2026.01 — 2026.02',
-    category: 'Backend',
+    category: 'Team Project',
     title: 'UMC MY4CUT 프로젝트',
     description: '네컷 사진을 친구들과 공유·수정하고 보관하는 협업형 아카이빙 플랫폼을 개발했습니다.',
     details: [
@@ -125,8 +125,8 @@ function AboutPage() {
           </div>
           <div className="about-intro">
             <p>
-              작은 불편을 직접 해결하는 앱 개발에서 시작해 인증, 결제, AI, 클라우드 인프라를 다루는
-              Spring Boot 백엔드 개발자로 성장하고 있습니다.
+              작은 불편을 해결하는 앱 개발에서 시작해 모바일, 서버, AI와 클라우드 인프라를 넘나들며
+              필요한 제품을 직접 만들고 운영해 왔습니다. 하나의 직무보다 문제와 사용자에 맞는 역할을 선택하며 성장하고 있습니다.
             </p>
           </div>
           <div className="about-flower"><FlowerLogo large /></div>
