@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from 'react';
+import './experimental-ko.css';
 
 const baseUrl = import.meta.env.BASE_URL;
 
@@ -6,7 +7,7 @@ const projects = [
   {
     index: '01',
     title: 'Aoi',
-    label: 'Independent product',
+    label: '독립 제품 개발',
     description: '일본 상용한자 학습 경험을 설계하고, iOS 앱부터 AI 문제 생성 서버와 운영 인프라까지 하나의 제품으로 연결했습니다.',
     stack: ['SwiftUI', 'Spring Boot', 'Gemini', 'Docker'],
     image: `${baseUrl}images/aoi.png`,
@@ -16,7 +17,7 @@ const projects = [
   {
     index: '02',
     title: 'Art-Window',
-    label: 'AI commerce platform',
+    label: 'AI 아트 커머스',
     description: '공간 이미지에서 작품 생성, 저장, 주문과 결제까지 이어지는 복합적인 사용자 흐름을 실제 서비스로 구현했습니다.',
     stack: ['OAuth2', 'PayApp', 'OCI', 'Commerce'],
     image: `${baseUrl}images/artwindow.jpg`,
@@ -26,7 +27,7 @@ const projects = [
   {
     index: '03',
     title: 'MY4CUT',
-    label: 'Collaborative archive',
+    label: '협업형 사진 아카이브',
     description: '친구들과 사진을 공유하고 정리하는 협업형 아카이브의 워크스페이스, 초대, 멤버십과 댓글 구조를 설계했습니다.',
     stack: ['REST API', 'Swagger', 'Domain Design', 'Teamwork'],
     image: `${baseUrl}images/my4cut.png`,
@@ -94,6 +95,7 @@ function useInteractiveScene(canvasRef) {
 
     const render = () => {
       if (!context || !canvas) return;
+
       smoothX += (pointerX - smoothX) * 0.045;
       smoothY += (pointerY - smoothY) * 0.045;
       context.clearRect(0, 0, width, height);
@@ -103,16 +105,21 @@ function useInteractiveScene(canvasRef) {
 
       particles.forEach((particle) => {
         particle.y -= reduceMotion ? 0 : particle.speed;
+
         if (particle.y < -8) {
           particle.y = height + 8;
           particle.x = Math.random() * width;
         }
 
-        const x = particle.x + offsetX * particle.depth;
-        const y = particle.y + offsetY * particle.depth;
         context.beginPath();
         context.fillStyle = `rgba(214, 255, 81, ${0.16 + particle.depth * 0.4})`;
-        context.arc(x, y, particle.radius, 0, Math.PI * 2);
+        context.arc(
+          particle.x + offsetX * particle.depth,
+          particle.y + offsetY * particle.depth,
+          particle.radius,
+          0,
+          Math.PI * 2,
+        );
         context.fill();
       });
 
@@ -153,6 +160,7 @@ function ProjectCard({ project }) {
     const bounds = card.getBoundingClientRect();
     const x = (event.clientX - bounds.left) / bounds.width;
     const y = (event.clientY - bounds.top) / bounds.height;
+
     card.style.setProperty('--card-x', `${x * 100}%`);
     card.style.setProperty('--card-y', `${y * 100}%`);
     card.style.setProperty('--card-rx', `${(0.5 - y) * 8}deg`);
@@ -172,9 +180,11 @@ function ProjectCard({ project }) {
       rel="noreferrer"
       onPointerMove={handlePointerMove}
       onPointerLeave={resetPointer}
+      aria-label={`${project.title} 프로젝트 열기`}
       data-reveal
     >
       <div className="x-project__index" aria-hidden="true">{project.index}</div>
+
       <div className="x-project__visual">
         <div className="x-project__beam" />
         <div className="x-project__frame">
@@ -185,6 +195,7 @@ function ProjectCard({ project }) {
           <span>0{project.index} / ACTIVE</span>
         </div>
       </div>
+
       <div className="x-project__copy">
         <p>{project.label}</p>
         <h3>{project.title}</h3>
@@ -192,7 +203,7 @@ function ProjectCard({ project }) {
         <ul>
           {project.stack.map((item) => <li key={item}>{item}</li>)}
         </ul>
-        <span className="x-project__link">Open project <b>↗</b></span>
+        <span className="x-project__link">프로젝트 보기 <b>↗</b></span>
       </div>
     </a>
   );
@@ -212,37 +223,42 @@ function ExperimentalApp() {
       <header className="x-header">
         <a className="x-brand" href="#top" aria-label="구현모 포트폴리오 홈">
           <span>HM</span>
-          <small>Product experiments / 2026</small>
+          <small>제품 실험 / 2026</small>
         </a>
+
         <nav aria-label="주요 메뉴">
-          <a href="#projects">Projects</a>
-          <a href={`${baseUrl}about.html`}>Archive</a>
-          <a className="x-nav-cta" href="mailto:hmoo4198@gmail.com">Contact ↗</a>
+          <a href="#projects">프로젝트</a>
+          <a href={`${baseUrl}about.html`}>기록</a>
+          <a className="x-nav-cta" href="mailto:hmoo4198@gmail.com">연락하기 ↗</a>
         </nav>
       </header>
 
       <main>
         <section className="x-hero" id="top">
           <div className="x-hero__grid" aria-hidden="true" />
+
           <div className="x-hero__copy">
             <div className="x-status" data-reveal>
               <i />
-              <span>Available for ambitious ideas</span>
+              <span>새로운 아이디어를 기다리는 중</span>
               <b>SEOUL · 37.56° N</b>
             </div>
+
             <h1 data-reveal>
-              <span>I BUILD</span>
-              <span className="x-hero__outline">SYSTEMS</span>
-              <span>THAT FEEL</span>
-              <span className="x-hero__signal">ALIVE.</span>
+              <span>생각을</span>
+              <span className="x-hero__outline">움직이는</span>
+              <span>제품으로</span>
+              <span className="x-hero__signal">만듭니다.</span>
             </h1>
+
             <div className="x-hero__bottom" data-reveal>
               <p>
                 모바일, 서버, AI와 인터랙션을 하나의 경험으로 엮습니다.
                 결과물뿐 아니라 결과물이 움직이는 방식까지 설계합니다.
               </p>
+
               <div className="x-hero__actions">
-                <a href="#projects">Explore systems <span>↓</span></a>
+                <a href="#projects">프로젝트 살펴보기 <span>↓</span></a>
                 <a href="https://github.com/hmooko" target="_blank" rel="noreferrer">GitHub ↗</a>
               </div>
             </div>
@@ -251,10 +267,12 @@ function ExperimentalApp() {
           <div className="x-command" aria-hidden="true">
             <div className="x-command__orbit x-command__orbit--one" />
             <div className="x-command__orbit x-command__orbit--two" />
+
             <div className="x-command__core">
               <span>HM</span>
               <small>CREATIVE<br />SYSTEM</small>
             </div>
+
             <div className="x-float-panel x-float-panel--terminal">
               <header><i /><i /><i /><span>build.log</span></header>
               <p><b>01</b> idea → prototype</p>
@@ -262,11 +280,13 @@ function ExperimentalApp() {
               <p><b>03</b> product → operation</p>
               <div><span /></div>
             </div>
+
             <div className="x-float-panel x-float-panel--signal">
               <span>INTERACTION SIGNAL</span>
               <strong>98.7</strong>
               <div className="x-wave"><i /><i /><i /><i /><i /><i /><i /></div>
             </div>
+
             <div className="x-float-chip x-float-chip--one">AI / 04</div>
             <div className="x-float-chip x-float-chip--two">MOBILE / 01</div>
             <div className="x-float-chip x-float-chip--three">SYSTEM / 03</div>
@@ -289,11 +309,13 @@ function ExperimentalApp() {
         <section className="x-projects" id="projects">
           <div className="x-section-head" data-reveal>
             <div>
-              <span>SELECTED SYSTEMS / 03</span>
-              <h2>Built across<br />different layers.</h2>
+              <span>선택한 프로젝트 / 03</span>
+              <h2>서로 다른 층을<br />하나의 제품으로.</h2>
             </div>
+
             <p>
-              역할을 먼저 정하지 않습니다. 문제에 필요한 화면, API, 인프라와 운영 방식을 선택해 실제 사용 가능한 결과로 연결합니다.
+              역할을 먼저 정하지 않습니다. 문제에 필요한 화면, API, 인프라와 운영 방식을 선택해
+              실제 사용 가능한 결과로 연결합니다.
             </p>
           </div>
 
@@ -304,20 +326,27 @@ function ExperimentalApp() {
 
         <section className="x-manifesto">
           <div className="x-manifesto__halo" aria-hidden="true" />
+
           <div className="x-manifesto__label" data-reveal>
-            <span>OPERATING PRINCIPLES</span>
+            <span>작업 원칙</span>
             <b>04 SIGNALS</b>
           </div>
+
           <div className="x-manifesto__statement" data-reveal>
-            <p>Not a fixed role.</p>
-            <h2>A moving system of<br /><em>curiosity, craft,</em><br />and execution.</h2>
+            <p>정해진 역할보다 문제를 봅니다.</p>
+            <h2>
+              호기심으로 관찰하고,<br />
+              <em>기술로 연결하고,</em><br />
+              끝까지 실행합니다.
+            </h2>
           </div>
+
           <div className="x-principles">
             {[
-              ['01', 'Observe', '사용자의 불편과 흐름을 먼저 관찰합니다.'],
-              ['02', 'Prototype', '설명보다 빠르게 움직이는 형태를 만듭니다.'],
-              ['03', 'Connect', '화면과 서버, AI와 운영을 하나로 연결합니다.'],
-              ['04', 'Refine', '측정하고 다시 설계하며 완성도를 끌어올립니다.'],
+              ['01', '관찰', '사용자의 불편과 흐름을 먼저 관찰합니다.'],
+              ['02', '빠른 구현', '설명보다 빠르게 움직이는 형태를 만듭니다.'],
+              ['03', '연결', '화면과 서버, AI와 운영을 하나로 연결합니다.'],
+              ['04', '개선', '측정하고 다시 설계하며 완성도를 끌어올립니다.'],
             ].map(([number, title, text]) => (
               <article key={number} data-reveal>
                 <span>{number}</span>
@@ -330,22 +359,23 @@ function ExperimentalApp() {
 
         <section className="x-contact" data-reveal>
           <div className="x-contact__meta">
-            <span>NEXT TRANSMISSION</span>
-            <small>Ideas, products, experiments.</small>
+            <span>다음 신호</span>
+            <small>아이디어, 제품, 실험.</small>
           </div>
+
           <a href="mailto:hmoo4198@gmail.com">
-            <span>LET'S MAKE</span>
-            <strong>SOMETHING</strong>
-            <em>UNEXPECTED.</em>
+            <span>함께</span>
+            <strong>새로운 것을</strong>
+            <em>만들어봅시다.</em>
             <i>↗</i>
           </a>
         </section>
       </main>
 
       <footer className="x-footer">
-        <span>© 2026 HYUNMO KOO</span>
-        <span>DESIGNED & ENGINEERED IN SEOUL</span>
-        <a href="#top">BACK TO TOP ↑</a>
+        <span>© 2026 구현모</span>
+        <span>서울에서 디자인하고 개발했습니다</span>
+        <a href="#top">맨 위로 ↑</a>
       </footer>
     </div>
   );
