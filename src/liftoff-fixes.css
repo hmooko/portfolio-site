@@ -1,9 +1,0 @@
-.l-signal-bars i {
-  transform-origin: bottom;
-}
-
-@keyframes l-bars {
-  to {
-    transform: scaleY(.62);
-  }
-}
