@@ -1,0 +1,182 @@
+/* Readability pass: keep the oversized display type, enlarge everything users need to read. */
+.x-brand small {
+  font-size: 11px;
+  line-height: 1.55;
+}
+
+.x-header nav a {
+  font-size: 13px;
+  letter-spacing: 0.03em;
+}
+
+.x-status {
+  font-size: 11px;
+  letter-spacing: 0.06em;
+}
+
+.x-hero__bottom p {
+  max-width: 540px;
+  font-size: 18px;
+  line-height: 1.8;
+}
+
+.x-hero__actions a {
+  min-height: 56px;
+  padding-inline: 20px;
+  font-size: 14px;
+}
+
+.x-command__core small {
+  font-size: 10px;
+}
+
+.x-float-panel--terminal header span,
+.x-float-panel--signal > span {
+  font-size: 9px;
+}
+
+.x-float-panel--terminal p,
+.x-float-chip,
+.x-scroll-note {
+  font-size: 10px;
+}
+
+.x-marquee span {
+  font-size: 13px;
+}
+
+.x-section-head > div > span {
+  font-size: 11px;
+}
+
+.x-section-head > p {
+  max-width: 480px;
+  font-size: 17px;
+  line-height: 1.85;
+}
+
+.x-project__telemetry {
+  font-size: 9px;
+}
+
+.x-project__copy > p {
+  font-size: 11px;
+}
+
+.x-project__description {
+  font-size: 17px;
+  line-height: 1.85;
+}
+
+.x-project__copy li {
+  padding: 9px 12px;
+  font-size: 11px;
+}
+
+.x-project__link {
+  font-size: 14px;
+}
+
+.x-manifesto__label,
+.x-contact__meta {
+  font-size: 10px;
+}
+
+.x-manifesto__statement > p {
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.x-principles article > span {
+  font-size: 10px;
+}
+
+.x-principles h3 {
+  font-size: 27px;
+}
+
+.x-principles p {
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+.x-footer {
+  font-size: 10px;
+  line-height: 1.6;
+}
+
+@media (max-width: 960px) {
+  .x-header nav a {
+    font-size: 12px;
+  }
+
+  .x-hero__bottom p,
+  .x-section-head > p,
+  .x-project__description {
+    font-size: 16px;
+  }
+
+  .x-principles p {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 760px) {
+  .x-brand small {
+    font-size: 10px;
+  }
+
+  .x-header nav {
+    gap: 16px;
+  }
+
+  .x-header nav a {
+    font-size: 11px;
+  }
+
+  .x-status {
+    font-size: 10px;
+  }
+
+  .x-status b {
+    margin-left: 16px;
+  }
+
+  .x-hero__bottom p,
+  .x-section-head > p,
+  .x-project__description {
+    font-size: 16px;
+    line-height: 1.8;
+  }
+
+  .x-hero__actions a {
+    min-height: 54px;
+    font-size: 13px;
+  }
+
+  .x-project__copy > p,
+  .x-section-head > div > span {
+    font-size: 10px;
+  }
+
+  .x-project__copy li {
+    font-size: 10px;
+  }
+
+  .x-project__link {
+    font-size: 13px;
+  }
+
+  .x-principles h3 {
+    font-size: 24px;
+  }
+
+  .x-principles p {
+    font-size: 15px;
+  }
+
+  .x-footer {
+    gap: 14px;
+    font-size: 9px;
+  }
+}
